@@ -1,12 +1,20 @@
 pipeline {
     agent any
     tools {
-        nodejs 'nodejs' // Assumes NodeJS plugin with 'Node16' installation configured
+        nodejs 'Node16' // Assumes NodeJS plugin with 'Node16' installation configured
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/chyke2991/WorkTeams-FE.git'
+                git branch: 'main', url: 'pipeline {
+    agent any
+    tools {
+        nodejs 'Node16' // Assumes NodeJS plugin with 'Node16' installation configured
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/your-repo/your-node-app.git'
             }
         }
         stage('Install Dependencies') {
@@ -19,16 +27,25 @@ pipeline {
                 sh 'npm run build'
             }
         }
-    post {
-        always {
-            cleanWs()
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }'
+            }
         }
-        success {
-            echo 'Build and deployment successful!'
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
         }
-        failure {
-            echo 'Build failed!'
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
         }
-    }
-}
-}
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
