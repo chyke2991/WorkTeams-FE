@@ -9,7 +9,7 @@ pipeline {
                 git branch: 'main', url: 'pipeline {
     agent any
     tools {
-        nodejs 'Node16' // Assumes NodeJS plugin with 'Node16' installation configured
+        nodejs 'nodejs' // Assumes NodeJS plugin with 'Node16' installation configured
     }
     stages {
         stage('Checkout') {
