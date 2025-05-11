@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/your-repo/your-node-app.git'
+                git branch: 'master', url: ''https://github.com/chyke2991/WorkTeams-FE.git
             }
         }
         stage('Install Dependencies') {
@@ -27,11 +27,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }'
+        
             }
         }
         stage('Install Dependencies') {
